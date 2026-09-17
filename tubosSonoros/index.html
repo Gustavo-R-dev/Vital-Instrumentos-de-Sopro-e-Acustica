@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vital | Instrumentos de Sopro & Acústica</title>
+  
+  <!-- Framework W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- MathJax Config e Script -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #121214;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Cores e Temas */
+    .bg-dark-primary { background-color: #1a1a1e; }
+    .bg-dark-card { background-color: #202024; }
+    .bg-dark-inner { background-color: #29292e; }
+    .text-red-vital { color: #dd0000; }
+    .border-red-vital { border-color: #dd0000 !important; }
+    
+    section, .simulator-container {
+      scroll-margin-top: 90px;
+    }
+
+    /* Detalhe visual nos títulos */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #dd0000;
+      margin: 8px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    canvas {
+      background-color: #09090a;
+      border-radius: 8px;
+      width: 100%;
+      height: auto;
+    }
+
+    select, input[type="range"] {
+      background-color: #121214;
+      color: #fff;
+      border: none;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .product-img {
+      height: 220px;
+      object-fit: contain;
+      background-color: #09090a;
+    }
+
+    /* Fontes Aumentadas para Leitura Confortável nos Cards */
+    .card-title-custom {
+      font-size: 1.4rem !important;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .card-text-custom {
+      font-size: 1.05rem !important;
+      line-height: 1.6;
+      color: #cccccc !important;
+    }
+
+    /* Imagem e Banner Conceitual da Física */
+    .physics-banner {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      filter: brightness(0.8);
+    }
+
+    .formula-box {
+      background: #09090a;
+      border: 1px solid #29292e;
+      border-radius: 8px;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Fixo W3.CSS -->
+  <header class="w3-top bg-dark-primary w3-border-bottom border-red-vital">
+    <div class="w3-bar w3-padding w3-content" style="max-width: 1100px;">
+      <a href="#apresentacao" class="w3-bar-item w3-button w3-hover-none w3-hover-text-white">
+        <div class="w3-large w3-bold text-red-vital" style="letter-spacing: 2px;">VITAL</div>
+        <div class="w3-small w3-text-gray">Instrumentos de Sopro & Acústica</div>
+      </a>
+      
+      <!-- Navegação no Cabeçalho -->
+      <nav class="w3-right w3-hide-small w3-margin-top">
+        <a href="#apresentacao" class="w3-bar-item w3-button w3-hover-text-red">Sobre</a>
+        <a href="#laboratorio" class="w3-bar-item w3-button w3-hover-text-red">Laboratório</a>
+        <a href="#produtos" class="w3-bar-item w3-button w3-hover-text-red">Produtos</a>
+        <a href="#teoria" class="w3-bar-item w3-button w3-hover-text-red">Física</a>
+        <a href="#contato" class="w3-bar-item w3-button w3-hover-text-red">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="w3-content w3-container" style="max-width: 950px; margin-top: 110px;">
+    
+    <!-- Seção 1: Apresentação da Empresa -->
+    <section id="apresentacao" class="w3-center w3-padding-32">
+      <h1 class="w3-jumbo w3-bold">A Essência da Física no seu <span class="text-red-vital">Órgão Vital</span></h1>
+      
+      <div class="w3-text-gray w3-large w3-margin-top" style="line-height: 1.8; text-align: justify;">
+        <p>
+          Fundada em 2012 por apaixonados por acústica e lutheria clássica, a <strong>Vital</strong> nasceu do desejo de unir a arte secular da confecção de instrumentos de sopro com os cálculos mais precisos da física moderna. Acreditamos que o som perfeito não é fruto do acaso, mas sim do controle minucioso da geometria, dos materiais e do comportamento das ondas sonoras.
+        </p>
+        <p class="w3-margin-top">
+          Especializada no desenvolvimento de órgãos de tubos, flautas e clarinetes, nossa equipe estuda profundamente a ressonância em tubos abertos e fechados para moldar cada harmônico com máxima clareza. Do sopro mais suave de uma flauta ao majestoso eco de um órgão, nossa missão é entregar a músicos e entusiastas uma experiência sonora viva, precisa e memorável.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção 2: Laboratório Interativo (Simulador) -->
+    <section id="laboratorio" class="w3-padding-16">
+      <h2 class="w3-center w3-xlarge section-title w3-margin-bottom">Laboratório Acústico</h2>
+      
+      <div class="simulator-container bg-dark-card w3-padding-24 w3-round-large w3-card-4 w3-center">
+        <h3>Simulador Visual de Onda Estacionária</h3>
+        
+        <canvas id="tuboCanvas" width="700" height="250" class="w3-margin-vertical"></canvas>
+
+        <div class="bg-dark-inner w3-padding w3-round-large w3-row-padding">
+          <div class="w3-half w3-margin-bottom">
+            <label>Tipo de Tubo:
+              <select id="tipoTubo">
+                <option value="aberto">Tubo Aberto (ex: Flautas)</option>
+                <option value="fechado">Tubo Fechado (ex: Clarinete / Órgão)</option>
+              </select>
+            </label>
+          </div>
+          <div class="w3-half">
+            <label>Harmônico (\(n\)): <span id="harmónicoVal">1</span>
+              <input type="range" id="harmónicoInput" min="1" max="5" value="1">
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 3: Catálogo de Produtos -->
+    <section id="produtos" class="w3-padding-16">
+      <h2 class="w3-center w3-xlarge section-title w3-margin-bottom">Nossos Instrumentos</h2>
+      
+      <div class="w3-row-padding">
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-round-large w3-padding-large w3-center w3-border w3-border-dark-gray w3-hover-border-red">
+            <img src="imagens/orgao.avif" alt="Órgão Vital" class="w3-image product-img w3-round w3-padding w3-margin-bottom">
+            <h3 class="text-red-vital card-title-custom">Órgão Vital</h3>
+            <p class="card-text-custom">A união perfeita de centenas de tubos abertos e fechados em grande escala. O ápice da engenharia acústica física.</p>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-round-large w3-padding-large w3-center w3-border w3-border-dark-gray w3-hover-border-red">
+            <img src="imagens/flauta.webp" alt="Flauta Doce" class="w3-image product-img w3-round w3-padding w3-margin-bottom">
+            <h3 class="text-red-vital card-title-custom">Flauta Vital</h3>
+            <p class="card-text-custom">Instrumento projetado com tubo aberto. Produz timbres cristalinos e vibrantes explorando harmônicos pares e ímpares.</p>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-round-large w3-padding-large w3-center w3-border w3-border-dark-gray w3-hover-border-red">
+            <img src="imagens/clarinete.webp" alt="Clarinete Vital" class="w3-image product-img w3-round w3-padding w3-margin-bottom">
+            <h3 class="text-red-vital card-title-custom">Clarinete Vital</h3>
+            <p class="card-text-custom">Atua essencialmente como um tubo fechado, destacando apenas harmônicos ímpares para criar um som rico e aveludado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção 4: Conceitos da Física Expandidos -->
+    <section id="teoria" class="w3-padding-24">
+      <h2 class="w3-center w3-xlarge section-title w3-margin-bottom">A Física por Trás do Som</h2>
+      
+      <!-- Introdução da Seção com Banner Ilustrativo -->
+      <div class="bg-dark-card w3-padding-large w3-round-large w3-margin-bottom w3-border w3-border-dark-gray">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80" alt="Acústica Musical e Ondas Sonoras" class="physics-banner w3-margin-bottom">
+        <h3 class="text-red-vital card-title-custom">O Fenômeno da Ressonância Acústica</h3>
+        <p class="card-text-custom">
+          Quando o ar é injetado em um tubo sonoro, a perturbação cria ondas de pressão que se propagam até a extremidade. Ao encontrarem uma saída aberta ou um fundo fechado, essas ondas sofrem reflexão e se sobrepõem, originando <strong>ondas estacionárias</strong>. A frequência com que o ar vibra dentro da coluna do tubo determina a nota musical emitida e a sua pureza acústica.
+        </p>
+      </div>
+
+      <!-- Cards dos Tipos de Tubos -->
+      <div class="w3-row-padding">
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-padding-large w3-round-large w3-leftbar border-red-vital w3-border-top w3-border-right w3-border-bottom w3-border-dark-gray" style="height: 100%;">
+            <h3 class="text-red-vital card-title-custom">Tubos Abertos</h3>
+            <p class="card-text-custom">Apresentam ventres (amplitude máxima de vibração) nas duas extremidades. O comprimento do tubo acomoda múltiplos de meio comprimento de onda \(\left(\frac{\lambda}{2}\right)\).</p>
+            <p class="card-text-custom w3-margin-top"><strong>Série Harmônica:</strong> Gera todos os harmônicos (\(n = 1, 2, 3, 4\dots\)), proporcionando um som rico em sobretons e brilhante.</p>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-padding-large w3-round-large w3-leftbar border-red-vital w3-border-top w3-border-right w3-border-bottom w3-border-dark-gray" style="height: 100%;">
+            <h3 class="text-red-vital card-title-custom">Tubos Fechados</h3>
+            <p class="card-text-custom">Possuem um nó (zero vibração) na extremidade fechada e um ventre na extremidade aberta. O tubo acomoda múltiplos ímpares de um quarto de onda \(\left(\frac{\lambda}{4}\right)\).</p>
+            <p class="card-text-custom w3-margin-top"><strong>Série Harmônica:</strong> Produz apenas harmônicos ímpares (\(n = 1, 3, 5\dots\)), originando timbres mais encorpados e fechados.</p>
+          </div>
+        </div>
+
+        <div class="w3-third w3-margin-bottom">
+          <div class="bg-dark-card w3-padding-large w3-round-large w3-leftbar border-red-vital w3-border-top w3-border-right w3-border-bottom w3-border-dark-gray" style="height: 100%;">
+            <h3 class="text-red-vital card-title-custom">A Física dos Timbres</h3>
+            <p class="card-text-custom">O timbre é a "assinatura" do instrumento. Dois instrumentos tocando a mesma nota fundamental soam totalmente diferentes devido aos harmônicos presentes.</p>
+            <p class="card-text-custom w3-margin-top">A geometria interna dos instrumentos da Vital é modelada para filtrar e amplificar os harmônicos exatos de cada nota.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco de Fórmulas Teóricas -->
+      <div class="bg-dark-card w3-padding-24 w3-round-large w3-margin-top w3-border w3-border-dark-gray">
+        <h3 class="text-red-vital card-title-custom w3-center">Equações Fundamentais da Acústica</h3>
+        <p class="card-text-custom w3-center w3-margin-bottom">A relação matemática entre a velocidade do som no ar (\(v \approx 340\text{ m/s}\)), o comprimento do tubo (\(L\)) e a frequência emitida (\(f_n\)):</p>
+        
+        <div class="w3-row-padding w3-center">
+          <div class="w3-half w3-margin-bottom">
+            <div class="formula-box">
+              <span class="text-red-vital w3-bold w3-large">Tubos Abertos</span>
+              <p class="w3-text-white w3-margin-top">
+                \[ f_n = n \cdot \frac{v}{2L} \]
+              </p>
+              <span class="w3-small w3-text-gray">onde \(n = 1, 2, 3, 4\dots\)</span>
+            </div>
+          </div>
+          <div class="w3-half">
+            <div class="formula-box">
+              <span class="text-red-vital w3-bold w3-large">Tubos Fechados</span>
+              <p class="w3-text-white w3-margin-top">
+                \[ f_n = n \cdot \frac{v}{4L} \]
+              </p>
+              <span class="w3-small w3-text-gray">onde \(n = 1, 3, 5, 7\dots\) (apenas ímpares)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé W3.CSS -->
+  <footer id="contato" class="bg-dark-primary w3-padding-32 w3-center w3-border-top border-red-vital w3-margin-top">
+    <div class="w3-content" style="max-width: 600px;">
+      <p class="w3-large"><strong>VITAL — Instrumentos de Sopro & Acústica</strong></p>
+      
+      <div class="w3-xlarge w3-section">
+        <a href="#" class="w3-hover-text-red w3-margin-right"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="w3-hover-text-red w3-margin-right"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="w3-hover-text-red"><i class="fab fa-facebook"></i></a>
+      </div>
+
+      <div class="w3-text-gray w3-medium">
+        <p><i class="fas fa-envelope text-red-vital"></i> contato@vitalinstrumentos.com.br</p>
+        <p><i class="fas fa-phone text-red-vital"></i> (11) 31415-9265</p>
+      </div>
+
+      <p class="w3-small w3-text-gray w3-margin-top">Projeto de Física & Desenvolvimento Web — Empresa Fictícia Vital</p>
+    </div>
+  </footer>
+
+  <!-- Script do Canvas -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('tuboCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const tipoTuboSelect = document.getElementById('tipoTubo');
+      const harmonicoInput = document.getElementById('harmónicoInput');
+      const harmonicoValDisplay = document.getElementById('harmónicoVal');
+
+      let tempo = 0;
+
+      function desenhar() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const tipo = tipoTuboSelect.value;
+        const n = parseInt(harmonicoInput.value, 10);
+        if (harmonicoValDisplay) harmonicoValDisplay.textContent = n;
+
+        const tuboX = 50;
+        const tuboY = 75;
+        const tuboLargura = 600;
+        const tuboAltura = 100;
+        const centroY = tuboY + tuboAltura / 2;
+
+        // Estrutura do Tubo
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        
+        ctx.moveTo(tuboX, tuboY);
+        ctx.lineTo(tuboX + tuboLargura, tuboY);
+        ctx.moveTo(tuboX, tuboY + tuboAltura);
+        ctx.lineTo(tuboX + tuboLargura, tuboY + tuboAltura);
+
+        if (tipo === 'fechado') {
+          ctx.moveTo(tuboX, tuboY);
+          ctx.lineTo(tuboX, tuboY + tuboAltura);
+        }
+        ctx.stroke();
+
+        // Onda Estacionária (Vermelha #dd0000)
+        ctx.strokeStyle = '#dd0000';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+
+        const amplitudeMaxima = tuboAltura / 2 - 10;
+        const fatorTempo = Math.sin(tempo);
+
+        for (let pixelX = 0; pixelX <= tuboLargura; pixelX++) {
+          const xRelativo = pixelX / tuboLargura;
+          let amplitudePonto = 0;
+
+          if (tipo === 'aberto') {
+            amplitudePonto = Math.cos(n * Math.PI * xRelativo);
+          } else {
+            amplitudePonto = Math.sin((n * Math.PI * xRelativo) / 2);
+          }
+
+          const posY = centroY + amplitudePonto * amplitudeMaxima * fatorTempo;
+
+          if (pixelX === 0) {
+            ctx.moveTo(tuboX + pixelX, posY);
+          } else {
+            ctx.lineTo(tuboX + pixelX, posY);
+          }
+        }
+        ctx.stroke();
+
+        tempo += 0.05;
+        requestAnimationFrame(desenhar);
+      }
+
+      tipoTuboSelect.addEventListener('change', () => {
+        if (tipoTuboSelect.value === 'fechado') {
+          harmonicoInput.step = "2";
+          harmonicoInput.value = "1";
+        } else {
+          harmonicoInput.step = "1";
+        }
+      });
+
+      desenhar();
+    });
+  </script>
+</body>
+</html>
